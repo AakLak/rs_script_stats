@@ -19,9 +19,8 @@ script = Script.create!(
   skill: 'Woodcutting',
   bot_for: 'TRiBot',
   game_for: "Oldschool Runescape 07",
-  user_id: 1
+  user_id: admin.id
 )
-
 
 user = User.create!(
   email: 'b@b.com',
@@ -40,18 +39,3 @@ commit_1_stat_1 = Stat.create(
   amount: 56,
   commit_id: user_commmit_1.id
   )
-# admin = User.create!([
-#   {email: 'b@b.com'},
-#   {password: 'useruser'},
-#   {password_confirmation: 'useruser'}
-# ])
-
-
-
-# commit_1 = Commit.new(task: "Logs Cut",
-#                               runtime: "5")
-# commit_2 = Commit.new(task: "Oak Cut",
-#                               runtime: "10")
-#
-# script.commits << commit_1
-# script.commits << commit_2
