@@ -33,6 +33,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot'
+  gem 'shoulda-matchers'
+end
+
+group :test do
+  gem 'simplecov'
 end
 
 group :development do

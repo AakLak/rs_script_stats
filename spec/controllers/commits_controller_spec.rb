@@ -23,6 +23,7 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 
+module Api::V1
 RSpec.describe CommitsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
@@ -126,4 +127,5 @@ RSpec.describe CommitsController, type: :controller do
     end
   end
 
+end
 end

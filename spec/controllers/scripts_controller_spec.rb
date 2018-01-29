@@ -22,14 +22,25 @@ require 'rails_helper'
 # expectations of assigns and templates rendered. These features have been
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
-
+module Api::V1
 RSpec.describe ScriptsController, type: :controller do
+
+  let(:user) {User.create!(
+    email: 'a@a.com',
+    password: 'adminadmin',
+    password_confirmation: 'adminadmin'
+  )}
 
   # This should return the minimal set of attributes required to create a valid
   # Script. As you add validations to Script, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    # skip("Add a hash of attributes valid for your model")
+    {name: 'YWoodcutter',
+    skill: 'Woodcutting',
+    bot_for: 'TRiBot',
+    game_for: "Oldschool Runescape 07",
+    user_id: user.id}
   }
 
   let(:invalid_attributes) {
@@ -126,4 +137,5 @@ RSpec.describe ScriptsController, type: :controller do
     end
   end
 
+end
 end

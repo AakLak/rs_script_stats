@@ -22,7 +22,7 @@ require 'rails_helper'
 # expectations of assigns and templates rendered. These features have been
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
-
+module Api::V1
 RSpec.describe StatsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
@@ -126,4 +126,5 @@ RSpec.describe StatsController, type: :controller do
     end
   end
 
+end
 end
