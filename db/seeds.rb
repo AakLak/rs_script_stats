@@ -9,7 +9,8 @@
 admin = User.create!(
   email: 'a@a.com',
   password: 'adminadmin',
-  password_confirmation: 'adminadmin'
+  password_confirmation: 'adminadmin',
+  admin: true
 )
 
 script = Script.create!(

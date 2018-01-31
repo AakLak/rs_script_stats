@@ -25,24 +25,29 @@ require 'rails_helper'
 module Api::V1
 RSpec.describe ScriptsController, type: :controller do
 
-  let(:user) {User.create!(
-    email: 'a@a.com',
-    password: 'adminadmin',
-    password_confirmation: 'adminadmin'
-  )}
+  # let(:user) {User.create!(
+  #   email: 'a@a.com',
+  #   password: 'adminadmin',
+  #   password_confirmation: 'adminadmin'
+  # )}
+
+  # let(:user) { FactoryBot.create(:user)}
+  script = FactoryBot.build(:script)
 
   # This should return the minimal set of attributes required to create a valid
   # Script. As you add validations to Script, be sure to
   # adjust the attributes here as well.
+  # let(:valid_attributes) {
+  #   {name: 'YWoodcutter', skill: 'Woodcutting', bot_for: 'TRiBot', game_for: "Oldschool Runescape 07", user_id: 1}
+  # }
   let(:valid_attributes) {
-    # skip("Add a hash of attributes valid for your model")
-    {name: 'YWoodcutter',
-    skill: 'Woodcutting',
-    bot_for: 'TRiBot',
-    game_for: "Oldschool Runescape 07",
-    user_id: user.id}
+    script.attributes.symbolize_keys
   }
-
+  p '*' * 20
+  p '*' * 20
+  p script.to_json
+  p '*' * 20
+  p '*' * 20
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
@@ -50,12 +55,12 @@ RSpec.describe ScriptsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ScriptsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  # let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
       script = Script.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(response).to be_success
     end
   end
@@ -63,7 +68,7 @@ RSpec.describe ScriptsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       script = Script.create! valid_attributes
-      get :show, params: {id: script.to_param}, session: valid_session
+      get :show, params: {id: script.to_param}
       expect(response).to be_success
     end
   end
@@ -71,14 +76,16 @@ RSpec.describe ScriptsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Script" do
+
+        sign_in user
         expect {
-          post :create, params: {script: valid_attributes}, session: valid_session
+          post :create, params: {script: script.to_json}
         }.to change(Script, :count).by(1)
       end
 
       it "renders a JSON response with the new script" do
-
-        post :create, params: {script: valid_attributes}, session: valid_session
+        sign_in user
+        post :create, params: {script: valid_attributes}
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
         expect(response.location).to eq(script_url(Script.last))

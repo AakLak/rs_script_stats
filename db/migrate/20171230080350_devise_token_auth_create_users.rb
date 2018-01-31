@@ -2,7 +2,8 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table(:users) do |t|
 
-
+      # I added
+      t.boolean :admin, default: false
       ## Required
       t.string :provider, :null => false, :default => "email"
       t.string :uid, :null => false, :default => ""

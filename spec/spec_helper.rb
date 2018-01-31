@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'factory_bot'
 SimpleCov.start do
   add_filter '/config/'
   add_filter '/spec/'
@@ -28,6 +29,7 @@ end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -42,8 +44,8 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  config.include Devise::Test::ControllerHelpers, :type => :controller
-  
+
+
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|

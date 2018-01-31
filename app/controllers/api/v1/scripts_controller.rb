@@ -48,7 +48,7 @@ class ScriptsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def script_params
-      params.require(:script).permit(:name, :type, :bot_for, :game_for, :user_id)
+      params.require(:script).permit(:name, :skill, :bot_for, :game_for, :user_id)
     end
 end
 end
