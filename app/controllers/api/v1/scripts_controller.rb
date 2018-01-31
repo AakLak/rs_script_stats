@@ -1,6 +1,7 @@
 module Api::V1
 class ScriptsController < ApplicationController
   before_action :set_script, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /scripts
   def index
@@ -47,7 +48,7 @@ class ScriptsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def script_params
-      params.require(:script).permit(:name, :type, :bot_for, :game_for)
+      params.require(:script).permit(:name, :skill, :bot_for, :game_for, :user_id)
     end
 end
 end
