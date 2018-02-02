@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :stats
+  namespace :admin do
+    resources :commits
+    resources :scripts
+    resources :users
+    resources :stats
+
+    root to: "commits#index"
+  end
+
   mount_devise_token_auth_for 'User', at: 'auth'
   namespace :api do
     namespace :v1 do
