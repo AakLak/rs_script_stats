@@ -1,5 +1,6 @@
 require "rails_helper"
 
+module Api::V1
 RSpec.describe CommitsController, type: :routing do
   describe "routing" do
 
@@ -30,4 +31,5 @@ RSpec.describe CommitsController, type: :routing do
     end
 
   end
+end
 end

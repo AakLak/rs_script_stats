@@ -47,7 +47,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def commit_params
-        params.require(:commit).permit(:task, :runtime, :script_id)
+        params.require(:commit).permit(:task, :runtime, :script_id, :user_id, stats_attributes: [:task, :amount, :commit_id])
       end
   end
 end

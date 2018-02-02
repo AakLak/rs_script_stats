@@ -6,16 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-test_script = Script.create(name: "YWoodcutter",
-              skill: "Woodcutting",
-              bot_for: "TRiBot",
-              game_for: "Oldschool Runescape 07")
+admin = User.create!(
+  email: 'a@a.com',
+  password: 'adminadmin',
+  password_confirmation: 'adminadmin',
+  admin: true
+)
 
+script = Script.create!(
+  name: 'YWoodcutter',
+  skill: 'Woodcutting',
+  bot_for: 'TRiBot',
+  game_for: "Oldschool Runescape 07",
+  user_id: admin.id
+)
 
-test_commit_1 = Commit.new(task: "Logs Cut",
-                              runtime: "5")
-test_commit_2 = Commit.new(task: "Oak Cut",
-                              runtime: "10")
+user = User.create!(
+  email: 'b@b.com',
+  password: 'useruser',
+  password_confirmation: 'useruser'
+)
 
-test_script.commits << test_commit_1
-test_script.commits << test_commit_2
+user_commmit_1 = Commit.create!(
+  runtime: 75,
+  user_id: user.id,
+  script_id: script.id
+  )
+
+commit_1_stat_1 = Stat.create(
+  task: "Trees Chopped",
+  amount: 56,
+  commit_id: user_commmit_1.id
+  )

@@ -23,79 +23,61 @@ require 'rails_helper'
 # removed from Rails core in Rails 5, but can be added back in via the
 # `rails-controller-testing` gem.
 module Api::V1
-RSpec.describe ScriptsController, type: :controller do
-
-  # let(:user) {User.create!(
-  #   email: 'a@a.com',
-  #   password: 'adminadmin',
-  #   password_confirmation: 'adminadmin'
-  # )}
-
-  # let(:user) { FactoryBot.create(:user)}
-  script = FactoryBot.build(:script)
+RSpec.describe StatsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # Script. As you add validations to Script, be sure to
+  # Stat. As you add validations to Stat, be sure to
   # adjust the attributes here as well.
-  # let(:valid_attributes) {
-  #   {name: 'YWoodcutter', skill: 'Woodcutting', bot_for: 'TRiBot', game_for: "Oldschool Runescape 07", user_id: 1}
-  # }
   let(:valid_attributes) {
-    script.attributes.symbolize_keys
+    skip("Add a hash of attributes valid for your model")
   }
-  p '*' * 20
-  p '*' * 20
-  p script.to_json
-  p '*' * 20
-  p '*' * 20
+
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # ScriptsController. Be sure to keep this updated too.
-  # let(:valid_session) { {} }
+  # StatsController. Be sure to keep this updated too.
+  let(:valid_session) { {} }
 
   describe "GET #index" do
     it "returns a success response" do
-      script = Script.create! valid_attributes
-      get :index, params: {}
+      stat = Stat.create! valid_attributes
+      get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "GET #show" do
     it "returns a success response" do
-      script = Script.create! valid_attributes
-      get :show, params: {id: script.to_param}
+      stat = Stat.create! valid_attributes
+      get :show, params: {id: stat.to_param}, session: valid_session
       expect(response).to be_success
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Script" do
-
-        sign_in user
+      it "creates a new Stat" do
         expect {
-          post :create, params: {script: script.to_json}
-        }.to change(Script, :count).by(1)
+          post :create, params: {stat: valid_attributes}, session: valid_session
+        }.to change(Stat, :count).by(1)
       end
 
-      it "renders a JSON response with the new script" do
-        sign_in user
-        post :create, params: {script: valid_attributes}
+      it "renders a JSON response with the new stat" do
+
+        post :create, params: {stat: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(script_url(Script.last))
+        expect(response.location).to eq(stat_url(Stat.last))
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new script" do
+      it "renders a JSON response with errors for the new stat" do
 
-        post :create, params: {script: invalid_attributes}, session: valid_session
+        post :create, params: {stat: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -108,27 +90,27 @@ RSpec.describe ScriptsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested script" do
-        script = Script.create! valid_attributes
-        put :update, params: {id: script.to_param, script: new_attributes}, session: valid_session
-        script.reload
+      it "updates the requested stat" do
+        stat = Stat.create! valid_attributes
+        put :update, params: {id: stat.to_param, stat: new_attributes}, session: valid_session
+        stat.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the script" do
-        script = Script.create! valid_attributes
+      it "renders a JSON response with the stat" do
+        stat = Stat.create! valid_attributes
 
-        put :update, params: {id: script.to_param, script: valid_attributes}, session: valid_session
+        put :update, params: {id: stat.to_param, stat: valid_attributes}, session: valid_session
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the script" do
-        script = Script.create! valid_attributes
+      it "renders a JSON response with errors for the stat" do
+        stat = Stat.create! valid_attributes
 
-        put :update, params: {id: script.to_param, script: invalid_attributes}, session: valid_session
+        put :update, params: {id: stat.to_param, stat: invalid_attributes}, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end
@@ -136,11 +118,11 @@ RSpec.describe ScriptsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested script" do
-      script = Script.create! valid_attributes
+    it "destroys the requested stat" do
+      stat = Stat.create! valid_attributes
       expect {
-        delete :destroy, params: {id: script.to_param}, session: valid_session
-      }.to change(Script, :count).by(-1)
+        delete :destroy, params: {id: stat.to_param}, session: valid_session
+      }.to change(Stat, :count).by(-1)
     end
   end
 
