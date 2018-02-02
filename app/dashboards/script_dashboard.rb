@@ -10,6 +10,7 @@ class ScriptDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     commits: Field::HasMany,
+    script_users: Field::HasMany.with_options(class_name: "User"),
     id: Field::Number,
     name: Field::String,
     skill: Field::String,
@@ -27,8 +28,8 @@ class ScriptDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :user,
     :commits,
+    :script_users,
     :id,
-    :name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,6 +37,7 @@ class ScriptDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :commits,
+    :script_users,
     :id,
     :name,
     :skill,
@@ -51,6 +53,7 @@ class ScriptDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :commits,
+    :script_users,
     :name,
     :skill,
     :bot_for,

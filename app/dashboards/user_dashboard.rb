@@ -10,6 +10,7 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     scripts: Field::HasMany,
     commits: Field::HasMany,
+    used_scripts: Field::HasMany.with_options(class_name: "Script"),
     id: Field::Number,
     admin: Field::Boolean,
     provider: Field::String,
@@ -44,8 +45,8 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :scripts,
     :commits,
+    :used_scripts,
     :id,
-    :admin,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -53,6 +54,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :scripts,
     :commits,
+    :used_scripts,
     :id,
     :admin,
     :provider,
@@ -85,6 +87,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :scripts,
     :commits,
+    :used_scripts,
     :admin,
     :provider,
     :uid,
