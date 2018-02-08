@@ -1,3 +1,3 @@
-class ApplicationController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
 end
