@@ -38,3 +38,9 @@ commit_1_stat_1 = Stat.create(
   amount: 56,
   commit_id: user_commmit_1.id
   )
+
+commit_1_stat_2 = Stat.create(
+  task: "Nests Collected",
+  amount: 1,
+  commit_id: user_commmit_1.id
+  )

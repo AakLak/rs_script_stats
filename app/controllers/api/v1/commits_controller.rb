@@ -1,5 +1,5 @@
 module Api::V1
-  class CommitsController < ApplicationController
+  class CommitsController < ApiController
     before_action :set_commit, only: [:show, :update, :destroy]
 
     # GET /commits

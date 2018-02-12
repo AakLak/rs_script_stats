@@ -1,0 +1,5 @@
+<% @scripts.each do |script| %>
+<% for attribute in script.attributes.keys %>
+<p><%= attribute.humanize %> <%= script.attributes[attribute].to_s %></p>
+<% end %>
+<% end %>
