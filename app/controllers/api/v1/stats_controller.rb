@@ -1,5 +1,5 @@
 module Api::V1
-  class StatsController < ApplicationController
+  class StatsController < ApiController
     before_action :set_stat, only: [:show, :update, :destroy]
 
     # GET /stats

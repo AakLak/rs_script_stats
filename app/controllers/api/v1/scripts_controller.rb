@@ -1,7 +1,6 @@
 module Api::V1
-class ScriptsController < ApplicationController
+  class ScriptsController < ApiController
   before_action :set_script, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /scripts
   def index
