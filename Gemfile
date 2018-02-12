@@ -26,7 +26,7 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 # I added these
-gem 'devise_token_auth'
+gem 'devise'
 gem 'administrate'
 
 group :development, :test do

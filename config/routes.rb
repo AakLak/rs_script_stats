@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  root to: "home#index"
+  
+  devise_for :users
   namespace :admin do
     resources :commits
     resources :scripts
@@ -8,7 +12,6 @@ Rails.application.routes.draw do
     root to: "commits#index"
   end
 
-  mount_devise_token_auth_for 'User', at: 'auth'
   namespace :api do
     namespace :v1 do
       resources :scripts
