@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # I added these
-gem 'devise_token_auth'
+gem 'devise'
 gem 'administrate'
 
 group :development, :test do
