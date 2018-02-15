@@ -4,14 +4,45 @@
     <title>Rsscriptstats</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <ul class="nav bg-dark">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item ml-auto">
+        <li class="nav-item">
+          <div class="nav-pad">
+            Your ID is: <%= current_user.id %>
+          </div>
+        </li>
+      </li>
+      <% end %>
+      <li class="nav-item ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to(current_user.email, edit_user_registration_path, class: "nav-link") %>
+        </li>
+      <li class="nav-item">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+        </li>
+        <% else %>
+          <%= link_to('Login', new_user_session_path, class: "nav-link") %>
+        <% end %>
+      </li>
+
+    </ul>
+
   </head>
 
-  <body>
+  <body class="">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
-
