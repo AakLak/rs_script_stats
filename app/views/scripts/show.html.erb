@@ -1,0 +1,25 @@
+<div class="container">
+<table class="table">
+  <thead>
+  <tr>
+     <th>Date</th>
+     <th>Runtime</th>
+     <th>Stats</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @commits.each do |commit| %>
+  <tr>
+     <td><%= commit.created_at %></td>
+     <td><%= humanize commit.runtime %></td>
+     <td>
+    <% commit.stats.each do |stat| %>
+        <%= stat.amount %> - <%= stat.task.titleize %>
+      <% end %>
+     </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @commits %>
+</div>

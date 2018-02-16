@@ -6,18 +6,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+userID_1 = User.create!(
+  email: 'u1@u1.com',
+  password: 'useruser',
+  password_confirmation: 'useruser'
+)
+
+userID_2 = User.create!(
+  email: 'u2@u2.com',
+  password: 'useruser',
+  password_confirmation: 'useruser'
+)
+
+userID_3 = User.create!(
+  email: 'u3@u3.com',
+  password: 'useruser',
+  password_confirmation: 'useruser'
+)
+
 admin = User.create!(
   email: 'a@a.com',
   password: 'adminadmin',
   password_confirmation: 'adminadmin',
   admin: true
 )
-user = User.create!(
-  email: 'b@b.com',
-  password: 'useruser',
-  password_confirmation: 'useruser'
-)
-
 
 
 script = Script.create!(
@@ -32,20 +44,20 @@ trees = %w(logs\ cut oaks\ cut willows\ cut teaks\ cut maples\ cut mahogoany\ cu
 300.times do |i|
   Commit.create!(
     runtime: rand(240)+20,
-    user_id: user.id,
+    user_id: rand(3)+1,
     script_id: script.id,
     created_at: DateTime.parse((Time.now - rand(1209600)).to_s)
     )
     Stat.create(
       task: trees.sample,
       amount: 28 * (rand(5)+1),
-      commit_id: i
+      commit_id: i + 1
       )
     if (rand(256) + 1) == 1
       Stat.create(
         task: "Nests",
         amount: 1,
-        commit_id: i
+        commit_id: i + 1
         )
     end
 end
