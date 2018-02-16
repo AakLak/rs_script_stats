@@ -8,6 +8,8 @@ class ScriptsController < ApplicationController
   def show
     @script = Script.find(params[:id])
     @commits = @script.commits.page(params[:page])
+    @stats = @script.stats.group(:task)
+    @stats_sum = @stats.sum(:amount)
   end
 
   def humanize mins

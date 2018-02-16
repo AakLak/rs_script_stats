@@ -1,4 +1,6 @@
 <div class="container">
+  <%= pie_chart @stats_sum %>
+  <%= line_chart @commits.group_by_day(:created_at).count %>
 <table class="table">
   <thead>
   <tr>
