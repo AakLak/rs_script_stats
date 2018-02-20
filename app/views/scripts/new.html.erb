@@ -1,0 +1,25 @@
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm">
+  </div>
+  <div class="col-sm">
+    <h2>Add Your Script</h2>
+    <%= bootstrap_form_for @script do |f| %>
+       <%= f.text_field :name %>
+       <%= f.text_field :skill %>
+       <%= f.select :bot_for, ['TRiBot', 'OSBot']%>
+       <%= f.text_field :game_for, value: 'Oldschool Runescape' %>
+       <!-- <%= f.hidden_field(:user_id, value: current_user.id) %> -->
+       <%= f.submit "Create" %>
+     <% end %>
+  </div>
+  <div class="col-sm">
+  </div>
+</div>
+</div>
+
+
+skill
+bot for

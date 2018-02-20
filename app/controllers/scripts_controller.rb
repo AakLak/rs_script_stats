@@ -7,9 +7,30 @@ class ScriptsController < ApplicationController
 
   def show
     @script = Script.find(params[:id])
-    @commits = @script.commits.page(params[:page])
+    @commits = @script.commits
+    @ordered_commits = @commits.group(:id).order("created_at DESC").page(params[:page])
     @stats = @script.stats.group(:task)
     @stats_sum = @stats.sum(:amount)
+  end
+
+  def new
+    if current_user
+     @script = current_user.scripts.build
+   end
+  end
+# @script = Script.new(script_params.merge(user_id: current_user.id))
+
+  def create
+    if current_user
+      @script = current_user.scripts.build(script_params)
+      if @script.save!
+        redirect_to @script, notice: "Script Added!"
+      else
+        render 'new', notice: "Error Adding Script"
+      end
+    else
+       redirect_to root_path, notice: 'You must be logged in to do this'
+     end
   end
 
   def humanize mins
@@ -20,6 +41,11 @@ class ScriptsController < ApplicationController
       end
       s
     }.join(' ')
+  end
+
+  private
+  def script_params
+    params.require(:script).permit(:name, :skill, :bot_for, :game_for, :user_id)
   end
 
 end

@@ -1,6 +1,13 @@
 <div class="container">
-  <%= pie_chart @stats_sum %>
-  <%= line_chart @commits.group_by_day(:created_at).count %>
+
+
+<h2>Commits by Task</h2>
+<%= pie_chart @stats_sum %>
+
+<h2>Commits Timeline</h2>
+<%= line_chart @commits.group_by_day(:created_at).count %>
+
+<h2>All Commits</h2>
 <table class="table">
   <thead>
   <tr>
@@ -10,7 +17,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @commits.each do |commit| %>
+  <% @ordered_commits.per(10).each do |commit| %>
   <tr>
      <td><%= commit.created_at %></td>
      <td><%= humanize commit.runtime %></td>
@@ -23,5 +30,5 @@
   <% end %>
   </tbody>
 </table>
-<%= paginate @commits %>
+<%= paginate @ordered_commits %>
 </div>
