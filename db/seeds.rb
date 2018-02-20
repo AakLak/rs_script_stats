@@ -32,9 +32,17 @@ admin = User.create!(
 )
 
 
-script = Script.create!(
+script_1 = Script.create!(
   name: 'YWoodcutter',
   skill: 'Woodcutting',
+  bot_for: 'TRiBot',
+  game_for: "Oldschool Runescape 07",
+  user_id: admin.id
+)
+
+script_2 = Script.create!(
+  name: 'Encoded Fisher',
+  skill: 'Fishing',
   bot_for: 'TRiBot',
   game_for: "Oldschool Runescape 07",
   user_id: admin.id
@@ -45,7 +53,7 @@ trees = %w(logs\ cut oaks\ cut willows\ cut teaks\ cut maples\ cut mahogoany\ cu
   Commit.create!(
     runtime: rand(240)+20,
     user_id: rand(3)+1,
-    script_id: script.id,
+    script_id: script_1.id,
     created_at: DateTime.parse((Time.now - rand(1209600)).to_s)
     )
     Stat.create(
@@ -61,6 +69,22 @@ trees = %w(logs\ cut oaks\ cut willows\ cut teaks\ cut maples\ cut mahogoany\ cu
         )
     end
 end
+
+fish = %w(shrimp\ caught anchovies\ caught trout\ caught salmon\ caught tuna\ caught lobster\ caught swordfish\ caught monkfish\ caught)
+300.times do |i|
+  Commit.create!(
+    runtime: rand(240)+20,
+    user_id: rand(3)+1,
+    script_id: script_2.id,
+    created_at: DateTime.parse((Time.now - rand(1209600)).to_s)
+    )
+    Stat.create(
+      task: fish.sample,
+      amount: 28 * (rand(5)+1),
+      commit_id: 300 + i + 1
+      )
+end
+
 
 # user_commmit_1 = Commit.create!(
 #   runtime: 75,
