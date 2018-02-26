@@ -1,0 +1,32 @@
+<div class="container">
+
+  <% if @scripts.exists? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Runtime</th>
+          <th scope="col">Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @scripts.each do |script| %>
+          <tr>
+            <td>
+              <%= link_to script.name, script %>
+            </td>
+            <td>
+              <%= humanize(script.commits.sum(:runtime)) %>
+            </td>
+            <td>
+              <%= script.script_users.count %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @scripts %>
+  <% else %>
+    <p class="warning">No records!</p>
+  <% end %>
+</div>
