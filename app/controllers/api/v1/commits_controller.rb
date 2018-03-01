@@ -2,18 +2,18 @@ module Api::V1
   class CommitsController < ApiController
     before_action :set_commit, only: [:show, :update, :destroy]
     before_action :authenticate_user!, only: [:create]
-    
-    # GET /commits
-    def index
-      @commits = Commit.all
 
-      render json: @commits
-    end
+    # GET /commits
+    # def index
+    #   @commits = Commit.all
+    #
+    #   render json: @commits
+    # end
 
     # GET /commits/1
-    def show
-      render json: @commit
-    end
+    # def show
+    #   render json: @commit
+    # end
 
     # POST /commits
     def create
@@ -27,18 +27,18 @@ module Api::V1
     end
 
     # PATCH/PUT /commits/1
-    def update
-      if @commit.update(commit_params)
-        render json: @commit
-      else
-        render json: @commit.errors, status: :unprocessable_entity
-      end
-    end
+    # def update
+    #   if @commit.update(commit_params)
+    #     render json: @commit
+    #   else
+    #     render json: @commit.errors, status: :unprocessable_entity
+    #   end
+    # end
 
     # DELETE /commits/1
-    def destroy
-      @commit.destroy
-    end
+    # def destroy
+    #   @commit.destroy
+    # end
 
     private
       # Use callbacks to share common setup or constraints between actions.
