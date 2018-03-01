@@ -1,7 +1,7 @@
 module Api::V1
   class ScriptsController < ApiController
   before_action :set_script, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create]
   # GET /scripts
   def index
     @scripts = Script.all
@@ -49,5 +49,5 @@ module Api::V1
     def script_params
       params.require(:script).permit(:name, :skill, :bot_for, :game_for, :user_id)
     end
-end
+  end
 end

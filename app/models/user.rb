@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_token_authenticatable
+  
   has_many :scripts
   has_many :commits
   has_many :used_scripts, -> { distinct }, through: :commits, source: :script

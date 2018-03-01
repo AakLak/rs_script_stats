@@ -2,8 +2,8 @@ class HomeController < ApplicationController
   helper_method :humanize
 
   def index
-    @top_5_scripts = Script.all.sort_by(&:runtime).first(5)
-    @top_5_stats = Stat.group(:task).sum(:amount).sort.first(5)
+    @top_5_scripts = Script.all.sort_by(&:runtime).first(5).reverse
+    @top_5_stats = Stat.group(:task).sum(:amount).sort_by{|k, v| v}.reverse.first(5)
   end
 
   def humanize mins

@@ -1,7 +1,8 @@
 module Api::V1
   class CommitsController < ApiController
     before_action :set_commit, only: [:show, :update, :destroy]
-
+    before_action :authenticate_user!, only: [:create]
+    
     # GET /commits
     def index
       @commits = Commit.all
