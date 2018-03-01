@@ -17,7 +17,9 @@ module Api::V1
 
     # POST /commits
     def create
-      @commit = Commit.new(commit_params)
+      params = commit_params
+      params[:user_id] = User.find(params[:user_id]).id
+      @commit = Commit.new(params)
 
       if @commit.save
         render json: @commit, status: :created, location: api_v1_commit_url(@commit)
@@ -48,7 +50,8 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def commit_params
-        params.require(:commit).permit(:task, :runtime, :script_id, :user_id, stats_attributes: [:task, :amount, :commit_id])
+        params.require(:commit)
+        .permit(:task, :runtime, :script_id, :user_id, stats_attributes: [:task, :amount, :commit_id])
       end
   end
 end

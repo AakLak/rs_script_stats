@@ -119,6 +119,10 @@ GEM
       activesupport (>= 4.2.0)
     groupdate (3.2.0)
       activesupport (>= 3)
+    hashid-rails (1.2.1)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
+    hashids (1.0.4)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -294,6 +298,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   groupdate
+  hashid-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

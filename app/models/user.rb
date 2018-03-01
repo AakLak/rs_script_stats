@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_token_authenticatable
+  include Hashid::Rails
   
   has_many :scripts
   has_many :commits
