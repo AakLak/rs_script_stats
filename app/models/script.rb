@@ -1,4 +1,6 @@
 class Script < ApplicationRecord
+  include Hashid::Rails
+  
   belongs_to :user
   has_many :commits
   has_many :stats, through: :commits

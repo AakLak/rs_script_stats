@@ -19,6 +19,7 @@ module Api::V1
     def create
       params = commit_params
       params[:user_id] = User.find(params[:user_id]).id
+      params[:script_id] = Script.find(params[:script_id]).id
       @commit = Commit.new(params)
 
       if @commit.save
