@@ -10,10 +10,12 @@
   <div class="row">
   <div class="col-sm">
     <h2 class="text-center">Top 5 Scripts</h2>
-    <% @top_5_scripts.each do |script| %>
-     <%= link_to script.name, script %>
-     <%= humanize(script.commits.sum(:runtime)) %>
-   </br>
+    <% if @top_5_scripts %>
+      <% @top_5_scripts.each do |script| %>
+       <%= link_to script.name, script %>
+       <%= humanize(script.commits.sum(:runtime)) %>
+     </br>
+      <% end %>
     <% end %>
   </div>
   <div class="col-sm">
@@ -21,10 +23,12 @@
   </div>
   <div class="col-sm">
     <h2 class="text-center">Top 5 Stats</h2>
+    <% if @top_5_stats %>
     <% @top_5_stats.each do |stat| %>
      <%= stat[0].titleize %>
      <%= stat[1] %>
    </br>
+    <% end %>
     <% end %>
   </div>
 </div>
