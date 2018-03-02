@@ -81,7 +81,7 @@ fish = %w(shrimp\ caught anchovies\ caught trout\ caught salmon\ caught tuna\ ca
     Stat.create(
       task: fish.sample,
       amount: 28 * (rand(5)+1),
-      commit_id: 300 + i + 1
+      commit_id: 100 + i + 1
       )
 end
 
