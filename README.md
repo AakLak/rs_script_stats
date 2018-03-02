@@ -30,8 +30,8 @@ Runescape Bot stats is an API that allows scripters to easily track stats their 
 }}
 ```
 ### Parameter Notes
+* At the very least, a commit requires `script_id`, `user_id`, and `runtime`
 * `runtime` is in minutes
-* At the very least, a commit requires `script_id`, `user_id`, and `runtime`.
 * `stats_attributes` are for tracking any sorts of tasks your script does. ex: Fish Caught, Yews Chopped, XP Gained, GP gained, etc.
 * `user_id: qN4tOb` is the catch-all user. Use this as default.
 
