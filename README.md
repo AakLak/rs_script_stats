@@ -36,7 +36,7 @@ Runescape Bot stats is an API that allows scripters to easily track stats their 
 * `user_id: qN4tOb` is the catch-all user. Use this as default.
 
 
-
+<!--- 
 
 # README
 
@@ -62,3 +62,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+--->
