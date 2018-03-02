@@ -17,7 +17,6 @@ class ScriptsController < ApplicationController
     if current_user
      @script = current_user.scripts.build
    else
-   else
       redirect_to root_path, notice: 'You must be logged in to do this'
    end
   end
