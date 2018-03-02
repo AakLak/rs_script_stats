@@ -79,7 +79,7 @@ class Rack::Attack
         'X-RateLimit-Reset' => (now + retry_after).to_s
      },   # headers
      [' error: {
-      status: status_code,
+      status: 429,
       name: "Too Many Requests",
       message: "Throttle limit reached. Retry later."
     }']] # body

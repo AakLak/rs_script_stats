@@ -6,11 +6,23 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-
+    before_action :be_number_one
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    def be_number_one
+      if current_user
+        unless current_user.id == 1
+          flash[:error] = "Get outta here!"
+          redirect_to root_path
+        end
+      else
+        flash[:error] = "Get outta here!"
+        redirect_to root_path
+      end
+    end
   end
 end
