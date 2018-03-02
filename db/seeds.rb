@@ -49,7 +49,7 @@ script_2 = Script.create!(
 )
 
 trees = %w(logs\ cut oaks\ cut willows\ cut teaks\ cut maples\ cut mahogoany\ cut yew\ cut magic\ cut)
-300.times do |i|
+100.times do |i|
   Commit.create!(
     runtime: rand(240)+20,
     user_id: rand(3)+1,
@@ -71,7 +71,7 @@ trees = %w(logs\ cut oaks\ cut willows\ cut teaks\ cut maples\ cut mahogoany\ cu
 end
 
 fish = %w(shrimp\ caught anchovies\ caught trout\ caught salmon\ caught tuna\ caught lobster\ caught swordfish\ caught monkfish\ caught)
-300.times do |i|
+100.times do |i|
   Commit.create!(
     runtime: rand(240)+20,
     user_id: rand(3)+1,
