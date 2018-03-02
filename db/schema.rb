@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226062449) do
+ActiveRecord::Schema.define(version: 20180302040956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180226062449) do
   create_table "commits", force: :cascade do |t|
     t.bigint "script_id"
     t.bigint "user_id"
-    t.integer "runtime"
+    t.float "runtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["script_id"], name: "index_commits_on_script_id"
