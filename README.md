@@ -4,7 +4,7 @@ Runescape Bot stats is an API that allows scripters to easily track stats their 
 ![Runescape Bot Stats Eample](https://i.imgur.com/FhPmbF7.png)
 ## Getting Started with the API
 
-* Sign up and adding your script [here](https://pure-woodland-47666.herokuapp.com/scripts/new/)
+* Sign up and add your script [here](https://pure-woodland-47666.herokuapp.com/scripts/new/)
 * Find your API Key and Script ID [here](https://pure-woodland-47666.herokuapp.com/users/edit/)
 * Send a POST request to upload your stats. We recommending sending 1 request on script end.
 
