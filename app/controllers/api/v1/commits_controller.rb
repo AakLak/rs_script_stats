@@ -1,6 +1,6 @@
 module Api::V1
   class CommitsController < ApiController
-    before_action :set_commit, only: [:show, :update, :destroy]
+    before_action :set_commit, only: %i[show update destroy]
     before_action :authenticate_user!, only: [:create]
 
     # GET /commits
@@ -44,15 +44,15 @@ module Api::V1
     # end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_commit
-        @commit = Commit.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def commit_params
-        params.require(:commit)
-        .permit(:task, :runtime, :script_id, :user_id, stats_attributes: [:task, :amount, :commit_id])
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_commit
+      @commit = Commit.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def commit_params
+      params.require(:commit).permit(:task, :runtime, :script_id, :user_id, stats_attributes: %i[task amount commit_id])
+    end
   end
 end

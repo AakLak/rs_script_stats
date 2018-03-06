@@ -3,17 +3,15 @@ class HomeController < ApplicationController
 
   def index
     @top_5_scripts = Script.all.sort_by(&:runtime).first(5).reverse
-    @top_5_stats = Stat.group(:task).sum(:amount).sort_by{|k, v| v}.reverse.first(5)
+    @top_5_stats = Stat.group(:task).sum(:amount).sort_by { |_k, v| v }.reverse.first(5)
   end
 
-  def humanize mins
-    [[60, :minutes], [24, :hours], [1000, :days]].inject([]){ |s, (count, name)|
+  def humanize(mins)
+    [[60, :minutes], [24, :hours], [1000, :days]].each_with_object([]) do |(count, name), s|
       if mins > 0
         mins, n = mins.divmod(count)
         s.unshift "#{n.to_i} #{name}"
       end
-      s
-    }.join(' ')
+    end.join(' ')
   end
-
 end

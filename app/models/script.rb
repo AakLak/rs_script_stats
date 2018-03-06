@@ -1,6 +1,6 @@
 class Script < ApplicationRecord
   include Hashid::Rails
-  
+
   belongs_to :user
   has_many :commits
   has_many :stats, through: :commits
@@ -13,6 +13,6 @@ class Script < ApplicationRecord
   validates_presence_of :bot_for
 
   def runtime
-    self.commits.sum(:runtime)
+    commits.sum(:runtime)
   end
 end

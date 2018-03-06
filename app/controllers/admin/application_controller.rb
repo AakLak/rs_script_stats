@@ -16,11 +16,11 @@ module Admin
     def be_number_one
       if current_user
         unless current_user.id == 1
-          flash[:error] = "Get outta here!"
+          flash[:error] = 'Get outta here!'
           redirect_to root_path
         end
       else
-        flash[:error] = "Get outta here!"
+        flash[:error] = 'Get outta here!'
         redirect_to root_path
       end
     end

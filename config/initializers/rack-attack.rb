@@ -1,5 +1,4 @@
 class Rack::Attack
-
   ### Configure Cache ###
 
   # If you don't want to use Rails.cache (Rack::Attack's default), then
@@ -24,9 +23,7 @@ class Rack::Attack
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  throttle('req/ip', limit: 30, period: 1.minutes) do |req|
-    req.ip # unless req.path.start_with?('/assets')
-  end
+  throttle('req/ip', limit: 30, period: 1.minutes, &:ip)
 
   ### Prevent Brute-Force Login Attacks ###
 
@@ -41,9 +38,7 @@ class Rack::Attack
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:logins/ip:#{req.ip}"
   throttle('logins/ip', limit: 5, period: 20.seconds) do |req|
-    if req.path == '/users/sign_in' && req.post?
-      req.ip
-    end
+    req.ip if req.path == '/users/sign_in' && req.post?
   end
 
   # Throttle POST requests to /login by email param
@@ -54,7 +49,7 @@ class Rack::Attack
   # throttle logins for another user and force their login requests to be
   # denied, but that's not very common and shouldn't happen to you. (Knock
   # on wood!)
-  throttle("logins/email", limit: 5, period: 20.seconds) do |req|
+  throttle('logins/email', limit: 5, period: 20.seconds) do |req|
     if req.path == '/users/sign_in' && req.post?
       # return the email if present, nil otherwise
       req.params['email'].presence
@@ -69,15 +64,15 @@ class Rack::Attack
   # If you want to return 503 so that the attacker might be fooled into
   # believing that they've successfully broken your app (or you just want to
   # customize the response), then uncomment these lines.
-  self.throttled_response = lambda do |env|
-   [ 429,  # status
+  self.throttled_response = lambda do |_env|
+    [429, # status
      {
-        'Content-Type' => 'application/json',
-        'Retry-After' => retry_after.to_s,
-        'X-RateLimit-Limit' => match_data[:limit].to_s,
-        'X-RateLimit-Remaining' => '0',
-        'X-RateLimit-Reset' => (now + retry_after).to_s
-     },   # headers
+       'Content-Type' => 'application/json',
+       'Retry-After' => retry_after.to_s,
+       'X-RateLimit-Limit' => match_data[:limit].to_s,
+       'X-RateLimit-Remaining' => '0',
+       'X-RateLimit-Reset' => (now + retry_after).to_s
+     }, # headers
      [' error: {
       status: 429,
       name: "Too Many Requests",

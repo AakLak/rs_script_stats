@@ -31,12 +31,11 @@ admin = User.create!(
   admin: true
 )
 
-
 script_1 = Script.create!(
   name: 'YWoodcutter',
   skill: 'Woodcutting',
   bot_for: 'TRiBot',
-  game_for: "Oldschool Runescape 07",
+  game_for: 'Oldschool Runescape 07',
   user_id: admin.id
 )
 
@@ -44,7 +43,7 @@ script_2 = Script.create!(
   name: 'Encoded Fisher',
   skill: 'Fishing',
   bot_for: 'TRiBot',
-  game_for: "Oldschool Runescape 07",
+  game_for: 'Oldschool Runescape 07',
   user_id: admin.id
 )
 
