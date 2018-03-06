@@ -1,10 +1,11 @@
 # Runescape Bot Stats
+[![Maintainability](https://api.codeclimate.com/v1/badges/30d1d68dc1b22dc4650e/maintainability)](https://codeclimate.com/github/AakLak/rs_script_stats/maintainability)
 
 Runescape Bot stats is an API that allows scripters to easily track stats their scripts have accomplished.
 ![Runescape Bot Stats Eample](https://i.imgur.com/FhPmbF7.png)
 ## Getting Started with the API
 
-* Sign up and adding your script [here](https://pure-woodland-47666.herokuapp.com/scripts/new/)
+* Sign up and add your script [here](https://pure-woodland-47666.herokuapp.com/scripts/new/)
 * Find your API Key and Script ID [here](https://pure-woodland-47666.herokuapp.com/users/edit/)
 * Send a POST request to upload your stats. We recommending sending 1 request on script end.
 
@@ -30,8 +31,8 @@ Runescape Bot stats is an API that allows scripters to easily track stats their 
 }}
 ```
 ### Parameter Notes
+* At the very least, a commit requires `script_id`, `user_id`, and `runtime`
 * `runtime` is in minutes
-* At the very least, a commit requires `script_id`, `user_id`, and `runtime`.
 * `stats_attributes` are for tracking any sorts of tasks your script does. ex: Fish Caught, Yews Chopped, XP Gained, GP gained, etc.
 * `user_id: qN4tOb` is the catch-all user. Use this as default.
 
