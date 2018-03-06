@@ -2,8 +2,11 @@
 
 
 <h2>Commits by Task</h2>
+<% if @stats_sum.length > 5 %>
+<%= column_chart @stats_sum %>
+<% else %>
 <%= pie_chart @stats_sum %>
-
+<% end %>
 <h2>Commits Timeline</h2>
 <%= line_chart @commits.group_by_day(:created_at).count %>
 

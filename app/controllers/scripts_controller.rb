@@ -10,7 +10,7 @@ class ScriptsController < ApplicationController
     @commits = @script.commits
     @ordered_commits = @commits.group(:id).order('created_at DESC').page(params[:page])
     @stats = @script.stats.group(:task)
-    @stats_sum = @stats.sum(:amount)
+    @stats_sum = @stats.sum(:amount).sort_by { |_k, v| v }.reverse
   end
 
   def new
