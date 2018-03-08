@@ -10,14 +10,14 @@ services:
   - postgresql
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  # - chmod +x ./cc-test-reporter
+  # - ./cc-test-reporter before-build
   - psql -c 'create database rsscriptstats_test;' -U postgres
 
 script:
   - bundle exec rake db:migrate
-  - bundle exec rspec
+  # - bundle exec rspec
 
 after_script:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+# - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
