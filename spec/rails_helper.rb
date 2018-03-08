@@ -39,7 +39,8 @@ end
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
-  config.extend ControllerMacros, :type => :controller
+  # I added & included this file
+  # config.extend ControllerMacros, :type => :controller
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

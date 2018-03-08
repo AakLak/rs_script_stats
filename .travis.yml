@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.2.2
+
+services:
+  - postgresql
+
+before_script:
+  - "psql -c 'create database travis;' -U postgres"
+
+script:
+  - "bundle exec rake db:migrate"

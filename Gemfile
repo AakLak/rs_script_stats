@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# I added these
 gem 'administrate'
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap_form',
@@ -55,6 +54,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.6'
+  gem "rubycritic", require: false
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end
