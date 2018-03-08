@@ -2,17 +2,21 @@ language: ruby
 rvm:
   - 2.5.0
 env:
-  - CC_TEST_REPORTER_ID=bafe089e8b4dee383a9d4ab05d90645af343f0ac87f34059e3a8d54d5545524b
+  global:
+    - CC_TEST_REPORTER_ID=bafe089e8b4dee383a9d4ab05d90645af343f0ac87f34059e3a8d54d5545524b
 
 services:
   - postgresql
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - "psql -c 'create database travis_ci_test;' -U postgres"
-  - "./cc-test-reporter before-build"
 
 script:
+  - bundle exec rspec
   - "bundle exec rake db:migrate"
 
 after_script:
-  - "./cc-test-reporter after-build --exit-code $EXIT_CODE"
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
