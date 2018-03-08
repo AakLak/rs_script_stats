@@ -1,4 +1,5 @@
 # Runescape Bot Stats
+[![Build Status](https://travis-ci.org/AakLak/rs_script_stats.svg?branch=master)](https://travis-ci.org/AakLak/rs_script_stats)
 [![Maintainability](https://api.codeclimate.com/v1/badges/30d1d68dc1b22dc4650e/maintainability)](https://codeclimate.com/github/AakLak/rs_script_stats/maintainability)
 
 Runescape Bot stats is an API that allows scripters to easily track stats their scripts have accomplished.
