@@ -2,7 +2,7 @@ class Script < ApplicationRecord
   include Hashid::Rails
 
   belongs_to :user
-  has_many :commits
+  has_many :commits#, -> { order(created_at: :desc) }
   has_many :stats, through: :commits
   has_many :script_users, -> { distinct }, through: :commits, source: :user
 
@@ -15,5 +15,5 @@ class Script < ApplicationRecord
   def runtime
     commits.sum(:runtime)
   end
-  
+
 end
