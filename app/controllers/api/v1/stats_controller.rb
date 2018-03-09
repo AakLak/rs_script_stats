@@ -1,5 +1,6 @@
-# module Api::V1
-#   class StatsController < ApiController
+module Api
+  module V1
+  class StatsController < ApiController
 #     before_action :set_stat, only: [:show, :update, :destroy]
 #
 #     # GET /stats
@@ -48,6 +49,6 @@
 #       # Only allow a trusted parameter "white list" through.
 #       def stat_params
 #         params.require(:stat).permit(:task, :amount, :commit_id)
-#       end
-#   end
-# end
+      end
+  end
+end

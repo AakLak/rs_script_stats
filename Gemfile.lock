@@ -91,6 +91,7 @@ GEM
     chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    choice (0.2.0)
     code_analyzer (0.4.5)
       sexp_processor
     coderay (1.1.2)
@@ -212,6 +213,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.1.4)
@@ -256,6 +262,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-graphviz (1.2.3)
     ruby-progressbar (1.9.0)
     ruby2ruby (2.0.8)
       ruby_parser (~> 3.1)
@@ -363,6 +370,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rack-attack
   rails (~> 5.1.4)
+  rails-erd
   rspec-rails (~> 3.6)
   rubocop (~> 0.53.0)
   rubycritic

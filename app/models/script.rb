@@ -15,4 +15,5 @@ class Script < ApplicationRecord
   def runtime
     commits.sum(:runtime)
   end
+  
 end
