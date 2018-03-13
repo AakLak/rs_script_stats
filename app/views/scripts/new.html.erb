@@ -9,7 +9,7 @@
        <%= f.text_field :skill %>
        <%= f.select :bot_for, ['TRiBot', 'OSBot']%>
        <%= f.text_field :game_for, value: 'Oldschool Runescape' %>
-       <!-- <%= f.hidden_field(:user_id, value: current_user.id) %> -->
+       <%#= f.hidden_field(:user_id, value: current_user.id) %>
        <%= f.submit "Create" %>
      <% end %>
   </div>

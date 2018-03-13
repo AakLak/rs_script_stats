@@ -49,13 +49,14 @@ gem 'simple_token_authentication', '~> 1.0' # see semver.org
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'rails-erd', require: false
   gem 'rspec-rails', '~> 3.6'
-  gem "rubycritic", require: false
+  gem 'rubycritic', require: false
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end

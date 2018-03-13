@@ -3,7 +3,7 @@ FactoryBot.define do
     name 'YWoodcutter'
     skill 'Woodcutting'
     bot_for 'TRiBot'
-    game_for "Oldschool Runescape 07"
+    game_for 'Oldschool Runescape 07'
     user
   end
 end
