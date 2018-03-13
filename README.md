@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/30d1d68dc1b22dc4650e/test_coverage)](https://codeclimate.com/github/AakLak/rs_script_stats/test_coverage)
 
 Runescape Bot stats is an API that allows scripters to easily track stats their scripts have accomplished.
-![Runescape Bot Stats Eample](https://i.imgur.com/FhPmbF7.png)
+![Runescape Bot Stats Eample](https://i.imgur.com/FRuGfip.png)
 ## Getting Started with the API
 
 * Sign up and add your script [here](https://pure-woodland-47666.herokuapp.com/scripts/new/)
