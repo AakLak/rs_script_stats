@@ -59,9 +59,6 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-end
-
-group :test do
   gem 'simplecov'
 end
 
