@@ -38,6 +38,9 @@ Runescape Bot stats is an API that allows scripters to easily track stats their 
 * `stats_attributes` are for tracking any sorts of tasks your script does. ex: Fish Caught, Yews Chopped, XP Gained, GP gained, etc.
 * `user_id: qN4tOb` is the catch-all user. Use this as default.
 
+## Other
+![Entity Relationship Diagram](https://i.imgur.com/rJGvYwQ.png?2)
+
 
 <!--- 
 
