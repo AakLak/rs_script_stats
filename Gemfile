@@ -54,7 +54,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
-  gem 'rails-erd', require: false
+  # gem 'rails-erd', require: false
   gem 'rspec-rails', '~> 3.6'
   gem 'rubycritic', require: false
   gem 'selenium-webdriver'
@@ -65,6 +65,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
+  # gem 'rails-erd'
   gem 'rubocop', '~> 0.53.0', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

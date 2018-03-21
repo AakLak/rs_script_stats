@@ -60,3 +60,9 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore rails erd pdf
+erd.pdf
+.erdconfig
+erdconfig
+erdconfig.yml
