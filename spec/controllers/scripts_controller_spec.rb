@@ -1,8 +1,31 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe ScriptsController do
+describe ScriptsController, type: :controller do
+
+  userID_1 = User.create!(
+    email: 'ueferfrfrf@u1.com',
+    password: 'useruser',
+    password_confirmation: 'useruser',
+  )
+
+  script1 = Script.create!(
+    name: 'YWoodcutter',
+    skill: 'Woodcutting',
+    bot_for: 'TRiBot',
+    game_for: 'Oldschool Runescape 07',
+    user_id: userID_1.id
+  )
+script1.save
+
   describe "GET #index" do
-    it "populates an array of contacts"
+    it "assigns @scripts" do
+      get :index
+      # p "********"
+      # p assigns(:scripts).class.name
+      # p assigns(:scripts)
+      # p response
+      expect(assigns(:scripts)).not_to be_empty
+    end
     it "renders the :index view"
   end
 

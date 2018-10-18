@@ -4,7 +4,7 @@ RSpec.describe Stat, type: :model do
   it { should belong_to(:commit) }
 
   userID_1 = User.create!(
-    email: 'u@u1.com',
+    email: 'ufefefe2@u1.com',
     password: 'useruser',
     password_confirmation: 'useruser',
   )

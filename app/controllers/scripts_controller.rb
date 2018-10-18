@@ -2,7 +2,7 @@ class ScriptsController < ApplicationController
   helper_method :humanize
 
   def index
-    @scripts = Script.order(:created_at).page params[:page]
+    @scripts = Script.order(:created_at)
   end
 
   def show
