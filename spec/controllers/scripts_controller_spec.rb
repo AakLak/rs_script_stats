@@ -15,7 +15,8 @@ describe ScriptsController, type: :controller do
     game_for: 'Oldschool Runescape 07',
     user_id: userID_1.id
   )
-script1.save
+
+  script1.save
 
   describe "GET #index" do
     it "assigns @scripts" do
