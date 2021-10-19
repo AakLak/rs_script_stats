@@ -1,59 +1,50 @@
 require 'rails_helper'
 
 describe ScriptsController, type: :controller do
+  let!(:user) do
+    User.create!(
+      email: 'ueferfrfrf@u1.com',
+      password: 'useruser',
+      password_confirmation: 'useruser'
+    )
+  end
 
+  let!(:script1) do
+    Script.create!(
+      name: 'YWoodcutter',
+      skill: 'Woodcutting',
+      bot_for: 'TRiBot',
+      game_for: 'Oldschool Runescape 07',
+      user_id: user.id
+    )
+  end
 
-  userID_1 = User.create!(
-    email: 'ueferfrfrf@u1.com',
-    password: 'useruser',
-    password_confirmation: 'useruser'
-  )
-
-  script = Script.create!(
-    name: 'YWoodcutter',
-    skill: 'Woodcutting',
-    bot_for: 'TRiBot',
-    game_for: 'Oldschool Runescape 07',
-    user_id: userID_1.id
-  )
-  script.save
-
-  let!(:script1) { script }
-
-
-  describe "GET #index" do
-    it "assigns @scripts" do
+  describe 'GET #index' do
+    it 'assigns @scripts' do
       get :index
       expect(assigns(:scripts)).to eq([script1])
     end
   end
 
-  # p "********"
-  # p assigns(:scripts).class.name
-  # p assigns(:scripts)
-  # p response
-  # expect(assigns(:scripts)).not_to be_empty
-  #it "renders the :index view"
-
-  describe "GET #show" do
-    it "assigns the requested contact to @contact"
-    it "renders the :show template"
+  describe 'GET #show' do
+    it 'assigns the requested contact to @contact'
+    it 'renders the :show template'
   end
 
-  describe "GET #new" do
-    it "assigns a new Contact to @contact"
-    it "renders the :new template"
+  describe 'GET #new' do
+    it 'assigns a new Contact to @contact'
+    it 'renders the :new template'
   end
 
-  describe "POST #create" do
-    context "with valid attributes" do
-      it "saves the new contact in the database"
-      it "redirects to the home page"
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      it 'saves the new contact in the database'
+      it 'redirects to the home page'
     end
 
-    context "with invalid attributes" do
-      it "does not save the new contact in the database"
-      it "re-renders the :new template"
+    context 'with invalid attributes' do
+      it 'does not save the new contact in the database'
+      it 're-renders the :new template'
     end
   end
 end
