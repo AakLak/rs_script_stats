@@ -21,10 +21,10 @@ describe ScriptsController, type: :controller do
   describe "GET #index" do
     it "assigns @scripts" do
       get :index
-      # p "********"
-      # p assigns(:scripts).class.name
-      # p assigns(:scripts)
-      # p response
+      p "********"
+      p assigns(:scripts).class.name
+      p assigns(:scripts)
+      p response
       expect(assigns(:scripts)).not_to be_empty
     end
     it "renders the :index view"
