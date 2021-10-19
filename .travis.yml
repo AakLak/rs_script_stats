@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 2.5.0
 
+dist: trusty
+
 env:
   global:
     - CC_TEST_REPORTER_ID=bafe089e8b4dee383a9d4ab05d90645af343f0ac87f34059e3a8d54d5545524b
