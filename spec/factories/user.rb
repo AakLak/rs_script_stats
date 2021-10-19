@@ -3,7 +3,7 @@ FactoryBot.define do
     email {'fafefeaectory@bot.com'}
     password {'useruser'}
     password_confirmation {'useruser'}
-    id 2
+    id {2}
   end
 
   # This will use the User class (Admin would have been guessed)
@@ -11,7 +11,7 @@ FactoryBot.define do
     email {'aefae@adede.com'}
     password {'adminadmin'}
     password_confirmation {'adminadmin'}
-    id 1
-    admin true
+    id {1}
+    admin {true}
   end
 end
