@@ -2,27 +2,29 @@ require 'rails_helper'
 
 describe ScriptsController, type: :controller do
 
+
   userID_1 = User.create!(
     email: 'ueferfrfrf@u1.com',
     password: 'useruser',
     password_confirmation: 'useruser'
   )
 
-  script1 = Script.create!(
+  script = Script.create!(
     name: 'YWoodcutter',
     skill: 'Woodcutting',
     bot_for: 'TRiBot',
     game_for: 'Oldschool Runescape 07',
     user_id: userID_1.id
   )
-  script1.save
+  script.save
+
+  let!(:script1) { script }
+
 
   describe "GET #index" do
     it "assigns @scripts" do
       get :index
-      p script1
-      #expect(assigns(:scripts)).to eq([script1])
-      expect(assigns(:scripts)).not_to be_empty
+      expect(assigns(:scripts)).to eq([script1])
     end
   end
 
