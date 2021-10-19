@@ -37,7 +37,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap_form',
     git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
     branch: 'master'
-gem 'chartkick'
+gem 'chartkick', '~> 3.4.2'
 gem 'devise'
 gem 'groupdate'
 gem 'hashid-rails', '~> 1.0'
@@ -57,7 +57,7 @@ group :development, :test do
   # gem 'rails-erd', require: false
   gem 'rspec-rails', '~> 3.6'
   gem 'rubycritic', require: false
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
   gem 'shoulda-matchers'
   gem 'simplecov'
 end
