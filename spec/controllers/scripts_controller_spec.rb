@@ -5,7 +5,7 @@ describe ScriptsController, type: :controller do
   userID_1 = User.create!(
     email: 'ueferfrfrf@u1.com',
     password: 'useruser',
-    password_confirmation: 'useruser',
+    password_confirmation: 'useruser'
   )
 
   script1 = Script.create!(
@@ -15,20 +15,23 @@ describe ScriptsController, type: :controller do
     game_for: 'Oldschool Runescape 07',
     user_id: userID_1.id
   )
-
   script1.save
 
   describe "GET #index" do
     it "assigns @scripts" do
       get :index
-      p "********"
-      p assigns(:scripts).class.name
-      p assigns(:scripts)
-      p response
+      p script1
+      #expect(assigns(:scripts)).to eq([script1])
       expect(assigns(:scripts)).not_to be_empty
     end
-    it "renders the :index view"
   end
+
+  # p "********"
+  # p assigns(:scripts).class.name
+  # p assigns(:scripts)
+  # p response
+  # expect(assigns(:scripts)).not_to be_empty
+  #it "renders the :index view"
 
   describe "GET #show" do
     it "assigns the requested contact to @contact"
