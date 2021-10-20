@@ -39,12 +39,15 @@ RSpec.describe Script, type: :model do
     )
   end
 
-  # Stat.create!(
-  #   task: 'Dummy Task',
-  #   amount: 1,
-  #   commit_id: 1
-  # )
-  #
+  let!(:script1_commit2) do
+    Commit.create!(
+      runtime: 60,
+      user_id: user1.id,
+      script_id: script1.id,
+      created_at: DateTime.parse(Time.now.to_s)
+    )
+  end
+
   let!(:script2) do
       Script.create!(
         name: 'YFisher',
@@ -64,24 +67,22 @@ RSpec.describe Script, type: :model do
     )
   end
 
-  # Stat.create!(
-  #   task: 'Dummy Task',
-  #   amount: 1,
-  #   commit_id: 1
-  # )
+  # describe "Script.runtime" do
+  #   it 'returns script runtime' do
+  #     expect(script1.runtime).to eq 60.0
+  #   end
+  # end
 
-  describe "Script.runtime" do
-    it 'returns script runtime' do
-      expect(script1.runtime).to eq 60.0
-    end
-  end
-
-  describe ".top_5_runtime" do
+  describe "top_5_runtime method" do
     it 'returns correctly orders scripts' do
-      top_5_array = Script.top_5_runtime
-      p "*" * 20
-      p top_5_array
-      expect(top_5_array).to start_with(script1).and end_with(script2)
+      expect(Script.top_5_runtime).to start_with(script1).and end_with(script2)
     end
   end
+
+  describe "runtime method" do
+    it 'returns correct script total runtime' do
+      Script.first.runtime.should eq(120)
+    end
+  end
+
 end
