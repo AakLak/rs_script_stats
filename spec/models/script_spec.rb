@@ -45,19 +45,25 @@ RSpec.describe Script, type: :model do
   #   commit_id: 1
   # )
   #
-  # script2 = Script.create!(
-  #   name: 'YWoodcutter2',
-  #   skill: 'Woodcutting',
-  #   bot_for: 'TRiBot',
-  #   game_for: 'Oldschool Runescape 07',
-  #   user_id: userID_1.id
-  # )
-  # Commit.create!(
-  #   runtime: 30,
-  #   user_id: userID_1.id,
-  #   script_id: script2.id,
-  #   created_at: DateTime.parse(Time.now.to_s)
-  # )
+  let!(:script2) do
+      Script.create!(
+        name: 'YFisher',
+        skill: 'Fishing',
+        bot_for: 'TRiBot',
+        game_for: 'Oldschool Runescape 07',
+        user_id: user1.id
+    )
+  end
+
+  let!(:commit2) do
+    Commit.create!(
+      runtime: 30,
+      user_id: user1.id,
+      script_id: script2.id,
+      created_at: DateTime.parse(Time.now.to_s)
+    )
+  end
+
   # Stat.create!(
   #   task: 'Dummy Task',
   #   amount: 1,
@@ -70,12 +76,12 @@ RSpec.describe Script, type: :model do
     end
   end
 
-  # describe ".top_5_runtime" do
-  #   it 'returns correctly orders scripts' do
-  #     top_5_array = Script.top_5_runtime
-  #     p "*" * 20
-  #     p top_5_array
-  #     expect(top_5_array).to start_with(script1).and end_with(script2)
-  #   end
-  # end
+  describe ".top_5_runtime" do
+    it 'returns correctly orders scripts' do
+      top_5_array = Script.top_5_runtime
+      p "*" * 20
+      p top_5_array
+      expect(top_5_array).to start_with(script1).and end_with(script2)
+    end
+  end
 end
