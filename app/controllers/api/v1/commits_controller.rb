@@ -4,11 +4,11 @@ module Api::V1
     before_action :authenticate_user!, only: [:create]
 
     # GET /commits
-    # def index
-    #   @commits = Commit.all
-    #
-    #   render json: @commits
-    # end
+    def index
+      @commits = Commit.all
+
+      render json: @commits
+    end
 
     # GET /commits/1
     # def show
