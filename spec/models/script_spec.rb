@@ -56,18 +56,18 @@ RSpec.describe Script, type: :model do
     commit_id: 1
   )
 
-  describe ".runtime" do
-    it 'returns script runtime' do
-      expect(script1.runtime).to eq 60.0
-    end
-  end
+  # describe ".runtime" do
+  #   it 'returns script runtime' do
+  #     expect(script1.runtime).to eq 60.0
+  #   end
+  # end
 
-  describe ".top_5_runtime" do
-    it 'returns correctly orders scripts' do
-      top_5_array = Script.top_5_runtime
-      p "*" * 20
-      p top_5_array
-      expect(top_5_array).to start_with(script1).and end_with(script2)
-    end
-  end
+  # describe ".top_5_runtime" do
+  #   it 'returns correctly orders scripts' do
+  #     top_5_array = Script.top_5_runtime
+  #     p "*" * 20
+  #     p top_5_array
+  #     expect(top_5_array).to start_with(script1).and end_with(script2)
+  #   end
+  # end
 end
